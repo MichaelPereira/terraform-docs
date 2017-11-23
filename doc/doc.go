@@ -86,7 +86,7 @@ func (a inputsByRequired) Less(i, j int) bool {
 
 // Create creates a new *Doc from the supplied map
 // of filenames and *ast.File.
-func Create(files map[string]*ast.File) *Doc {
+func Create(files map[string]*ast.File, sortByRequired bool) *Doc {
 	doc := new(Doc)
 
 	for name, f := range files {
@@ -101,7 +101,13 @@ func Create(files map[string]*ast.File) *Doc {
 			doc.Comment = header(comments[0])
 		}
 	}
-	sort.Sort(inputsByRequired(doc.Inputs))
+
+	switch {
+	case sortByRequired:
+		sort.Sort(inputsByRequired(doc.Inputs))
+	default:
+		sort.Sort(inputsByName(doc.Inputs))
+	}
 	sort.Sort(outputsByName(doc.Outputs))
 	return doc
 }
