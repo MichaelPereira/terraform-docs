@@ -7,10 +7,10 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/MichaelPereira/terraform-docs/doc"
+	"github.com/MichaelPereira/terraform-docs/print"
 	"github.com/hashicorp/hcl"
 	"github.com/hashicorp/hcl/hcl/ast"
-	"github.com/segmentio/terraform-docs/doc"
-	"github.com/segmentio/terraform-docs/print"
 	"github.com/tj/docopt"
 )
 

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/segmentio/terraform-docs/doc"
+	"github.com/MichaelPereira/terraform-docs/doc"
 )
 
 // Pretty printer pretty prints a doc.
